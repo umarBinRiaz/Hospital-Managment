@@ -158,6 +158,112 @@ function patientMenu() {
 
 }
 
+function adminPanel() {
+
+    var admin = true;
+
+    while (admin) {
+
+        var option = prompt(
+            "===== ADMIN PANEL =====\n\n" +
+            "1. View All Doctors\n" +
+            "2. View All Patients\n" +
+            "3. View Available Doctors\n" +
+            "4. View All Appointments\n" +
+            "5. Logout"
+        );
+
+        if (option == 1) {
+
+            console.clear();
+            console.log("========== DOCTORS ==========");
+
+            if (doctors.length == 0) {
+                console.log("No Doctors Registered");
+            } else {
+                for (let i = 0; i < doctors.length; i++) {
+                    console.log("Doctor ID : " + (i + 1));
+                    console.log("Name : " + doctors[i].name);
+                    console.log("Available : " + (doctors[i].available ? "Yes" : "No"));
+                    console.log("----------------------------");
+                }
+            }
+
+            alert("Doctors Printed In Console");
+
+        } else if (option == 2) {
+
+            // ---- View All Patients ----
+            console.clear();
+            console.log("========== PATIENTS ==========");
+
+            if (patients.length == 0) {
+                console.log("No Patients Registered");
+            } else {
+                for (let i = 0; i < patients.length; i++) {
+                    console.log("Patient ID : " + (i + 1));
+                    console.log("Username : " + patients[i].username);
+                    console.log("----------------------------");
+                }
+            }
+
+            alert("Patients Printed In Console");
+
+        } else if (option == 3) {
+
+            console.clear();
+            console.log("====== AVAILABLE DOCTORS ======");
+
+            var found = false;
+
+            for (var i = 0; i < doctors.length; i++) {
+                if (doctors[i].available) {
+                    found = true;
+                    console.log("Doctor ID : " + (i + 1));
+                    console.log("Name : " + doctors[i].name);
+                    console.log("----------------------------");
+                }
+            }
+
+            if (!found) {
+                console.log("No Available Doctors");
+            }
+
+            alert("Available Doctors Printed In Console");
+
+        } else if (option == 4) {
+
+            // ---- View All Appointments ----
+            console.clear();
+            console.log("======= APPOINTMENTS =======");
+
+            if (appointments.length == 0) {
+                console.log("No Appointments Found");
+            } else {
+                for (let i = 0; i < appointments.length; i++) {
+                    console.log("Appointment " + (i + 1));
+                    console.log("Patient : " + appointments[i].patient);
+                    console.log("Doctor : " + appointments[i].doctor);
+                    console.log("Disease : " + appointments[i].disease);
+                    console.log("----------------------------");
+                }
+            }
+
+            alert("Appointments Printed In Console");
+
+        } else if (option == 5) {
+            admin = false;
+            alert("Admin Logout Successful");
+
+        } else {
+            alert("Invalid Choice");
+        }
+
+    }
+
+}
+
+
 
 
 }
