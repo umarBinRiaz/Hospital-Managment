@@ -101,6 +101,63 @@ function doctorMenu() {
     }
 
 }
+    
+function patientMenu() {
+
+    var menu = true;
+
+    while (menu) {
+
+        var option = prompt(
+            "===== PATIENT =====\n\n" +
+            "1. Sign Up\n" +
+            "2. Login\n" +
+            "3. Back"
+        );
+
+        if (option == 1) {
+
+            var username = prompt("Create Username");
+            var password = prompt("Create Password");
+
+            patients.push({
+                username: username,
+                password: password
+            });
+
+            alert("Patient Registered Successfully");
+
+        } else if (option == 2) {
+
+            var username = prompt("Username");
+            var password = prompt("Password");
+
+            var found = false;
+
+            for (var i = 0; i < patients.length; i++) {
+                if (patients[i].username === username && patients[i].password === password) {
+                    found = true;
+                    alert("Welcome " + patients[i].username);
+                    patientPanel(patients[i]);
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Invalid Login");
+            }
+
+        } else if (option == 3) {
+            menu = false;
+
+        } else {
+            alert("Invalid Choice");
+        }
+
+    }
+
+}
+
 
 
 }
