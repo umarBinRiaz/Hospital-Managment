@@ -263,6 +263,65 @@ function adminPanel() {
 
 }
 
+function doctorPanel(doctor) {
+
+    var menu = true;
+
+    while (menu) {
+
+        var option = prompt(
+            "===== DOCTOR PANEL =====\n\n" +
+            "Welcome Dr. " + doctor.name + "\n\n" +
+            "1. View My Appointments\n" +
+            "2. Toggle Availability\n" +
+            "3. Logout"
+        );
+
+        if (option == 1) {
+
+            console.clear();
+            console.log("======= MY APPOINTMENTS =======");
+
+            var found = false;
+
+            for (var  i = 0; i < appointments.length; i++) {
+                if (appointments[i].doctor == doctor.name) {
+                    found = true;
+                    console.log("Appointment " + (i + 1));
+                    console.log("Patient : " + appointments[i].patient);
+                    console.log("Disease : " + appointments[i].disease);
+                    console.log("----------------------------");
+                }
+            }
+
+            if (!found) {
+                console.log("No Appointments Found");
+            }
+
+            alert("Appointments Printed In Console");
+
+        } else if (option == 2) {
+
+            if (doctor.available) {
+                doctor.available = false;
+                alert("You are now Unavailable");
+            } else {
+                doctor.available = true;
+                alert("You are now Available");
+            }
+
+        } else if (option == 3) {
+            menu = false;
+            alert("Doctor Logout Successful");
+
+        } else {
+            alert("Invalid Choice");
+        }
+
+    }
+
+}
+
 
 
 
