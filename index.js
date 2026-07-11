@@ -1,5 +1,5 @@
 var ADMIN_USERNAME = "admin";
-var ADMIN_PASSWORD = "admin123";
+var ADMIN_PASSWORD = "admin";
 
 var doctors = [];
 var patients = [];
