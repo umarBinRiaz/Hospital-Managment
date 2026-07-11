@@ -43,5 +43,64 @@ while (app) {
     } else {
         alert("Invalid Option");
     }
+    
+function doctorMenu() {
+
+    var menu = true;
+
+    while (menu) {
+
+        var option = prompt(
+            "===== DOCTOR =====\n\n" +
+            "1. Sign Up\n" +
+            "2. Login\n" +
+            "3. Back"
+        );
+
+        if (option == 1) {
+
+            var name = prompt("Enter Doctor Name");
+            var password = prompt("Create Password");
+
+            doctors.push({
+                name: name,
+                password: password,
+                available: true
+            });
+
+            alert("Doctor Registered Successfully");
+
+        } else if (option == 2) {
+
+            // ---- Doctor Login ----
+            var name = prompt("Enter Doctor Name");
+            var password = prompt("Enter Password");
+
+            var found = false;
+
+            for (var i = 0; i < doctors.length; i++) {
+                if (doctors[i].name === name && doctors[i].password === password) {
+                    found = true;
+                    alert("Welcome Dr. " + doctors[i].name);
+                    doctorPanel(doctors[i]);
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Invalid Login");
+            }
+
+        } else if (option == 3) {
+            menu = false;
+
+        } else {
+            alert("Invalid Choice");
+        }
+
+    }
+
+}
+
 
 }
