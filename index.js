@@ -322,6 +322,98 @@ function doctorPanel(doctor) {
 
 }
 
+function patientPanel(patient) {
+
+    var menu = true;
+
+    while (menu) {
+
+        var option = prompt(
+            "===== PATIENT PANEL =====\n\n" +
+            "Welcome " + patient.username + "\n\n" +
+            "1. Book Appointment\n" +
+            "2. View My Appointments\n" +
+            "3. Logout"
+        );
+
+        if (option == 1) {
+
+            // ---- Book Appointment ----
+            var availableDoctors = [];
+
+            for (var i = 0; i < doctors.length; i++) {
+                if (doctors[i].available) {
+                    availableDoctors.push(doctors[i]);
+                }
+            }
+
+            if (availableDoctors.length == 0) {
+                alert("No Doctors Available Right Now");
+
+            } else {
+
+                var doctorListText = "Select Doctor:\n\n";
+
+                for (var i = 0; i < availableDoctors.length; i++) {
+                    doctorListText += (i + 1) + ". Dr. " + availableDoctors[i].name + "\n";
+                }
+
+                var selected = prompt(doctorListText);
+                var index = selected - 1;
+
+                if (availableDoctors[index]) {
+
+                    var disease = prompt("Enter Disease / Reason");
+
+                    appointments.push({
+                        patient: patient.username,
+                        doctor: availableDoctors[index].name,
+                        disease: disease
+                    });
+
+                    alert("Appointment Booked Successfully");
+
+                } else {
+                    alert("Invalid Selection");
+                }
+
+            }
+
+        } else if (option == 2) {
+
+            // ---- View My Appointments ----
+            console.clear();
+            console.log("======= MY APPOINTMENTS =======");
+
+            var found = false;
+
+            for (var i = 0; i < appointments.length; i++) {
+                if (appointments[i].patient == patient.username) {
+                    found = true;
+                    console.log("Appointment " + (i + 1));
+                    console.log("Doctor : " + appointments[i].doctor);
+                    console.log("Disease : " + appointments[i].disease);
+                    console.log("----------------------------");
+                }
+            }
+
+            if (!found) {
+                console.log("No Appointments Found");
+            }
+
+            alert("Appointments Printed In Console");
+
+        } else if (option == 3) {
+            menu = false;
+            alert("Patient Logout Successful");
+
+        } else {
+            alert("Invalid Choice");
+        }
+
+    }
+
+}
 
 
 
