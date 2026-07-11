@@ -43,7 +43,9 @@ while (app) {
     } else {
         alert("Invalid Option");
     }
-    
+
+}
+
 function doctorMenu() {
 
     var menu = true;
@@ -101,7 +103,7 @@ function doctorMenu() {
     }
 
 }
-    
+
 function patientMenu() {
 
     var menu = true;
@@ -263,6 +265,7 @@ function adminPanel() {
 
 }
 
+
 function doctorPanel(doctor) {
 
     var menu = true;
@@ -397,11 +400,12 @@ function patientPanel(patient) {
                 }
             }
 
-          if (!found) {
+            if (!found) {
                 console.log("No Appointments Found");
             }
+
             alert("Appointments Printed In Console");
-            
+
         } else if (option == 3) {
             menu = false;
             alert("Patient Logout Successful");
@@ -411,9 +415,5 @@ function patientPanel(patient) {
         }
 
     }
-
-}
-
-
 
 }
