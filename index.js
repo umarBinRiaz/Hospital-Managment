@@ -397,12 +397,11 @@ function patientPanel(patient) {
                 }
             }
 
-            if (!found) {
+          if (!found) {
                 console.log("No Appointments Found");
             }
-
             alert("Appointments Printed In Console");
-
+            
         } else if (option == 3) {
             menu = false;
             alert("Patient Logout Successful");
