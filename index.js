@@ -71,10 +71,8 @@ function doctorMenu() {
             });
 
             alert("Doctor Registered Successfully");
-
         } else if (option == 2) {
 
-            // ---- Doctor Login ----
             var name = prompt("Enter Doctor Name");
             var password = prompt("Enter Password");
 
@@ -99,9 +97,7 @@ function doctorMenu() {
         } else {
             alert("Invalid Choice");
         }
-
-    }
-
+  }
 }
 
 function patientMenu() {
